@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reportes y exportación · Nómina CIPA</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="page-reports">
+    <div class="app">
+      <aside>
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">N</div>
+          <div>
+            <strong>Nómina CIPA</strong
+            ><small>Administración de personal y pagos</small>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class="" href="index.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m3 10 9-7 9 7" />
+                <path d="M5 9v12h14V9M9 21v-7h6v7" /></svg></span
+            >Inicio</a
+          ><a class="" href="empleados.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="8" r="3.5" />
+                <path
+                  d="M2.5 20c.4-4 2.7-6 6.5-6s6.1 2 6.5 6M16 5.5a3.5 3.5 0 0 1 0 6.8M17 15c2.7.7 4.1 2.3 4.5 5"
+                /></svg></span
+            >Empleados</a
+          ><a class="" href="nomina.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+                <path d="M7 8h10M7 12h4M7 16h10" /></svg></span
+            >Nómina</a
+          ><a class="active" href="reportes.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 3h10l4 4v14H5z" />
+                <path d="M15 3v5h4M8 12h8M8 16h8" /></svg></span
+            >Reportes</a
+          >
+        </nav>
+        <div class="side-foot">
+          <strong>CIPA · Proyecto académico</strong>Entorno local · CIPA
+        </div>
+      </aside>
+      <div class="main">
+        <header class="topbar">
+          <div>
+            <h1>Reportes y exportación</h1>
+            <p>Consulta el resumen general y descarga los datos</p>
+          </div>
+          <div class="top-actions">
+            <span id="today"></span>
+            <div class="avatar">C</div>
+          </div>
+        </header>
+        <main class="page-content">
+          <div class="page-head">
+            <div>
+              <h2>Analítica y reportes</h2>
+              <p>
+                Distribución del personal, comparación de valores y exportación
+                de resultados.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" id="exportReport">
+                ⇩ Descargar CSV</button
+              ><button class="btn" id="printReport">
+                Imprimir / Guardar PDF
+              </button>
+            </div>
+          </div>
+          <section class="stats">
+            <div class="stat">
+              <div class="stat-icon">♙</div>
+              <div>
+                <label>Empleados registrados</label
+                ><strong id="count">0</strong>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon green">$</div>
+              <div>
+                <label>Bruto estimado</label><strong id="grossTotal">$0</strong>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon purple">％</div>
+              <div>
+                <label>Deducciones</label
+                ><strong id="deductionsTotal">$0</strong>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon teal">↗</div>
+              <div>
+                <label>Neto estimado</label><strong id="netTotal">$0</strong>
+              </div>
+            </div>
+          </section>
+          <section class="charts-grid" aria-label="Gráficas de nómina">
+            <article class="card chart-card">
+              <div class="card-head">
+                <div>
+                  <h3>Bruto y neto por empleado</h3>
+                  <div class="sub">Comparación de valores estimados en COP</div>
+                </div>
+                <span class="chart-legend"
+                  ><i class="legend-gross"></i>Bruto
+                  <i class="legend-net"></i>Neto</span
+                >
+              </div>
+              <div
+                id="payrollChart"
+                class="chart-body"
+                role="img"
+                aria-label="Gráfica de barras que compara bruto y neto por empleado"
+              ></div>
+            </article>
+            <article class="card chart-card">
+              <div class="card-head">
+                <div>
+                  <h3>Composición de la plantilla</h3>
+                  <div class="sub">Empleados por modalidad de pago</div>
+                </div>
+              </div>
+              <div
+                id="typeChart"
+                class="chart-body donut-layout"
+                role="img"
+                aria-label="Gráfica de distribución de empleados por modalidad de pago"
+              ></div>
+            </article>
+          </section>
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h3>Resumen por empleado</h3>
+                <div class="sub">Datos que se incluirán en la exportación</div>
+              </div>
+              <a href="nomina.html">Abrir cálculo de nómina →</a>
+            </div>
+            <div id="reportRows"></div>
+            <div id="reportTotals"></div>
+          </section>
+          <div class="notice" style="margin-top: 18px">
+            <b>Privacidad y almacenamiento:</b> los datos permanecen en el
+            navegador de este equipo; no se sincronizan con otros dispositivos
+            ni con un servidor.
+          </div>
+        </main>
+        <footer class="footer">
+          <span>CIPA / Administración de nómina</span
+          ><span>● Datos guardados en este navegador</span>
+        </footer>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

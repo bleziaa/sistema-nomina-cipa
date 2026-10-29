@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / sistema
+.idea/
+.vscode/
+.DS_Store
+
+# Datos locales de empleados (no publicar datos personales)
+payroll/employees_data.json
+payroll/employees_data.tmp
+
+# Copias de seguridad locales
+*.bak
+*.bak-*

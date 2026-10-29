@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel de control · Nómina CIPA</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside>
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">N</div>
+          <div>
+            <strong>Nómina CIPA</strong
+            ><small>Administración de personal y pagos</small>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class="active" href="index.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m3 10 9-7 9 7" />
+                <path d="M5 9v12h14V9M9 21v-7h6v7" /></svg></span
+            >Inicio</a
+          ><a class="" href="empleados.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="8" r="3.5" />
+                <path
+                  d="M2.5 20c.4-4 2.7-6 6.5-6s6.1 2 6.5 6M16 5.5a3.5 3.5 0 0 1 0 6.8M17 15c2.7.7 4.1 2.3 4.5 5"
+                /></svg></span
+            >Empleados</a
+          ><a class="" href="nomina.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+                <path d="M7 8h10M7 12h4M7 16h10" /></svg></span
+            >Nómina</a
+          ><a class="" href="reportes.html"
+            ><span class="nav-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 3h10l4 4v14H5z" />
+                <path d="M15 3v5h4M8 12h8M8 16h8" /></svg></span
+            >Reportes</a
+          >
+        </nav>
+        <div class="side-foot">
+          <strong>CIPA · Proyecto académico</strong>Entorno local · CIPA
+        </div>
+      </aside>
+      <div class="main">
+        <header class="topbar">
+          <div>
+            <h1>CIPA <span class="topbar-divider">/</span> Administración</h1>
+            <p>Personal y nómina</p>
+          </div>
+          <div class="top-actions">
+            <span id="today"></span>
+            <div class="avatar">C</div>
+          </div>
+        </header>
+        <main class="page-content">
+          <div class="page-shell dashboard-v3">
+            <div class="dashboard-heading">
+              <div>
+                <div class="eyebrow">CIPA / CENTRO DE OPERACIONES</div>
+                <h2>Resumen general</h2>
+                <p>
+                  Una vista clara del personal y los valores estimados de
+                  nómina.
+                </p>
+              </div>
+              <a class="btn btn-primary" href="empleados.html"
+                >＋ Nuevo empleado</a
+              >
+            </div>
+            <section
+              class="stats dashboard-metrics"
+              aria-label="Indicadores de nómina"
+            >
+              <div class="stat">
+                <div>
+                  <label>Personal registrado</label><strong id="count">0</strong
+                  ><small>Personas en el sistema</small>
+                </div>
+                <span class="metric-mark">01</span>
+              </div>
+              <div class="stat">
+                <div>
+                  <label>Total bruto estimado</label
+                  ><strong id="grossTotal">$0</strong
+                  ><small>Antes de deducciones</small>
+                </div>
+                <span class="metric-mark">02</span>
+              </div>
+              <div class="stat">
+                <div>
+                  <label>Deducciones estimadas</label
+                  ><strong id="deductionsTotal">$0</strong
+                  ><small>Supuestos académicos</small>
+                </div>
+                <span class="metric-mark">03</span>
+              </div>
+              <div class="stat">
+                <div>
+                  <label>Neto estimado</label><strong id="netTotal">$0</strong
+                  ><small>Valor después de deducciones</small>
+                </div>
+                <span class="metric-mark">04</span>
+              </div>
+            </section>
+            <section class="dashboard-analysis">
+              <article class="analytics-main">
+                <div class="section-heading">
+                  <div>
+                    <div class="eyebrow">ANÁLISIS</div>
+                    <h3>Bruto frente a neto</h3>
+                    <p>Comparación por empleado · COP</p>
+                  </div>
+                  <a href="reportes.html">Ver reportes ↗</a>
+                </div>
+                <div
+                  id="payrollChart"
+                  class="chart-body dashboard-bar-chart"
+                  role="img"
+                  aria-label="Comparación de bruto y neto por empleado"
+                ></div>
+                <div class="chart-footnote">
+                  <span><i class="legend-gross"></i> Bruto</span
+                  ><span><i class="legend-net"></i> Neto</span
+                  ><small
+                    >Estimaciones académicas, no liquidación oficial.</small
+                  >
+                </div>
+              </article>
+              <article class="analytics-side">
+                <div class="section-heading">
+                  <div>
+                    <div class="eyebrow">COMPOSICIÓN</div>
+                    <h3>Modalidad de pago</h3>
+                    <p>Distribución de la plantilla</p>
+                  </div>
+                </div>
+                <div
+                  id="typeChart"
+                  class="chart-body donut-layout"
+                  role="img"
+                  aria-label="Distribución de empleados por modalidad de pago"
+                ></div>
+                <a class="text-link" href="empleados.html"
+                  >Gestionar plantilla <span>→</span></a
+                >
+              </article>
+            </section>
+            <section class="directory-preview">
+              <div class="section-heading directory-heading">
+                <div>
+                  <div class="eyebrow">PERSONAL</div>
+                  <h3>Directorio de empleados</h3>
+                  <p>Registros y valores estimados más recientes</p>
+                </div>
+                <a class="btn btn-quiet" href="empleados.html"
+                  >Abrir directorio ↗</a
+                >
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>EMPLEADO</th>
+                      <th>MODALIDAD</th>
+                      <th>BRUTO ESTIMADO</th>
+                      <th>NETO ESTIMADO</th>
+                      <th>ESTADO</th>
+                      <th>ACCIONES</th>
+                    </tr>
+                  </thead>
+                  <tbody id="employeeRows"></tbody>
+                </table>
+              </div>
+              <div class="table-foot">
+                <span id="tableCount">0 empleados</span
+                ><span>Datos locales de este navegador</span>
+              </div>
+            </section>
+            <div class="dashboard-disclaimer">
+              <span class="disclaimer-symbol">i</span>
+              <div>
+                <strong>Entorno académico</strong>
+                <p>
+                  Los datos se guardan en este navegador. Los cálculos son
+                  orientativos y deben revisarse antes de cualquier uso laboral
+                  real.
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <span>CIPA / Administración de nómina</span
+          ><span>● Datos guardados en este navegador</span>
+        </footer>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
